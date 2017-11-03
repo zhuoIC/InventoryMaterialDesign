@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_category_general">Preferencias Generales</string>
+    <string name="pref_description_showimage">Mostrar las imágenes en los listados de la aplicación.</string>
+    <string name="pref_title_showimage">Mostrar Imagen</string>
+    <string name="pref_summary_numcolumn">Mostrar las imágenes en los listados de la aplicación.</string>
+    <string name="pref_title_numcolumn">Número de columnas</string>
+    <string name="pref_entriesvalues_numcolumn"></string>
+    <string-array name="pref_entries_numcolumn">
+        <item>1 columna</item>
+        <item>2 columnas</item>
+        <item>3 columnas</item>
+        <item>4 columnas</item>
+    </string-array>
+    <string-array name="pref_entryvalues_numcolumn">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string name="pref_title_aboutus">Sobre nosotros</string>
+
+    <!-- GENERAL SETTING -->
+    <string name="pref_category_account">Configuración cuenta</string>
+    <string name="pref_title_reminduser">Recordar Usuario</string>
+    <string name="pref_summaryoff_reminduser">No recordar el usuario.</string>
+    <string name="pref_summaryon_reminduser">Recordar el usuario.</string>
+    <string name="pref_title_nameuser">Nombre Usuario</string>
+    <string name="pref_summary_nameuser">Cambiar el nombre del usuario.</string>
+    <string name="pref_title_passworduser">Contraseña Usuario</string>
+    <string name="pref_summary_passworduser">Cambiar la contraseña del usuario.</string>
+</resources>

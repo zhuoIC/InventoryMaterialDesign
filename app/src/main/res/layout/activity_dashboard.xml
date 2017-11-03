@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gridDashboard"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:columnCount="2"
+    app:orientation="horizontal"
+    tools:context="com.example.inventorymaterial.DashboardActivity"><!--
+
+    <ImageView
+        android:id="@+id/imgWhiteboard"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/whiteboard" />
+
+    <ImageView
+        android:id="@+id/imgTable"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/table" />
+
+    <ImageView
+        android:id="@+id/imgProyector"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/proyector" />
+
+    <ImageView
+        android:id="@+id/imgPrinter"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/printer" />
+
+    <ImageView
+        android:id="@+id/imgMouse"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/mouse" />
+
+    <ImageView
+        android:id="@+id/imgMonitor"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/monitor" />
+
+    <ImageView
+        android:id="@+id/imgKeyboard"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/keyboard" />
+
+    <ImageView
+        android:id="@+id/imgChair"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/chair" />
+
+    <ImageView
+        android:id="@+id/imgInventory"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/inventory" />
+
+    <ImageView
+        android:id="@+id/imageCPU"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/cpu" />
+
+    <ImageView
+        android:id="@+id/imgCloset"
+        android:layout_width="@dimen/imgDashboradWidth"
+        android:layout_height="@dimen/imgDashboradHeight"
+        app:layout_columnWeight="1"
+        app:layout_rowWeight="1"
+        app:layout_gravity="fill"
+        app:srcCompat="@drawable/closet" />-->
+
+</android.support.v7.widget.GridLayout>

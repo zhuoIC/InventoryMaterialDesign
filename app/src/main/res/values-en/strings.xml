@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inventory Material</string>
+    <string name="txvSignIn">Sign In</string>
+    <string name="txvUser">User name / email address</string>
+    <string name="txvPassword">Password</string>
+    <string name="btnFacebookSignIn">Login in with Facebook</string>
+    <string name="btnGoogleSignIn">Google</string>
+    <string name="btnSignIn">Sign In</string>
+    <string name="chkRemember">Remember me</string>
+    <string name="btnSignUp"><u>Sign Up</u></string>
+    <string name="tvxName">Name:</string>
+    <string name="txvDescription">Description:</string>
+    <string name="txvDateCreation">Creation Date:</string>
+    <string name="btnChange">Change Status:</string>
+    <string name="txvSerial">Serial:</string>
+    <string name="txvSeller">Seller</string>
+    <string name="txvModel">Model:</string>
+    <string name="txvCategory">Category:</string>
+    <string name="txvSubcategory">Subcategory:</string>
+    <string name="txvType">Type:</string>
+    <string name="txvPrice">Price</string>
+    <string name="txvUrl">Url:</string>
+    <string name="txvNotes">Notes:</string>
+    <string name="imgProduct">Product Image</string>
+    <string name="imgCodeQR">QR Code</string>
+    <string name="txvSectorDefault">Default Sector</string>
+    <string name="action_save">Save</string>
+    <string name="pref_category_general">General Preferences</string>
+    <string name="pref_description_showimage">Show images from the app.</string>
+    <string name="pref_title_showimage">Show Images</string>
+    <string name="pref_summary_numcolumn">Show images from the app.</string>
+    <string name="pref_title_numcolumn">Column Number</string>
+    <string name="pref_title_aboutus">About Us</string>
+    <string name="pref_category_account">Account Settings</string>
+    <string name="pref_title_reminduser">Remeber Me</string>
+    <string name="pref_summaryoff_reminduser">Don\'t Remember.</string>
+    <string name="pref_summaryon_reminduser">Remember me.</string>
+    <string name="pref_title_nameuser">User Name</string>
+    <string name="pref_summary_nameuser">Change user name.</string>
+    <string name="pref_title_passworduser">User Password</string>
+    <string name="pref_summary_passworduser">Change password.</string>
+</resources>

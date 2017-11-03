@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Inventory Material</string>
+    <string name="txvSignIn">Acceder</string>
+    <string name="txvUser">Nombre de usuario / correo electrónico</string>
+    <string name="txvPassword">Contraseña</string>
+    <string name="chkRemember">Recordar usuario</string>
+    <string name="btnSignUp"><u>Registro</u></string>
+    <string name="btnSignIn">Acceder</string>
+    <string name="btnGoogleSignIn">Google</string>
+    <string name="btnFacebookSignIn">Login in with Facebook</string>
+
+    <string name="tvxName">Nombre:</string>
+    <string name="txvDescription">Descripción:</string>
+    <string name="txvDateCreation">Fecha Creación:</string>
+    <string name="btnChange">Cambiar Estado</string>
+    <string name="txvSerial">Serial:</string>
+    <string name="txvSeller">Vendedor:</string>
+    <string name="txvModel">Modelo:</string>
+    <string name="txvCategory">Categoría:</string>
+    <string name="txvSubcategory">Subcategoría:</string>
+    <string name="txvType">Tipo:</string>
+    <string name="txvPrice">Precio:</string>
+    <string name="txvUrl">Url:</string>
+    <string name="txvNotes">Notas:</string>
+    <string name="imgProduct">Imagen del producto</string>
+    <string name="imgCodeQR">Código QR</string>
+
+    <string-array name="spnCategory">
+        <item>Periférico</item>
+    </string-array>
+    <string-array name="spnSubcategory">
+        <item>Monitor</item>
+    </string-array>
+    <string-array name="spnType">
+        <item>Inventariable</item>
+    </string-array>
+
+    <string name="txvSectorDefault">Sector por defecto</string>
+
+    <!-- ACCIONES DE LA APPBAR-TOOLBAR-FLOATING BUTTON-->
+
+    <string name="action_save">Salvar</string>
+    <string name="action_account_setting">Ajustes de Cuenta</string>
+    <string name="action_general_setting">Ajustes Generales</string>
+    <string name="edtName">Escriba el nombre</string>
+    <string name="edtSortName">Escriba el nombre corto</string>
+    <string name="edtDescription">Escriba una descripción</string>
+</resources>

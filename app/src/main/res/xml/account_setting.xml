@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_category_account" />
+    <SwitchPreference
+        android:defaultValue="false"
+        android:key="remindyuser"
+        android:title="@string/pref_title_reminduser"
+        android:summaryOn="@string/pref_summaryon_reminduser"
+        android:summaryOff="@string/pref_summaryoff_reminduser"/>
+    <Preference
+        android:key="nameuser"
+        android:title="@string/pref_title_nameuser"
+        android:summary="@string/pref_summary_nameuser" />
+    <Preference
+        android:key="passworduser"
+        android:title="@string/pref_title_passworduser"
+        android:summary="@string/pref_summary_passworduser" />
+</PreferenceScreen>
