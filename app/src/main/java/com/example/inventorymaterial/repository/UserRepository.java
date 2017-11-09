@@ -50,7 +50,17 @@ public class UserRepository {
         users.add(user);
     }
 
-    public ArrayList<User> getSectors(){
+    public ArrayList<User> getUsers(){
         return users;
     }
+
+    /**
+     * Método que comprueba su el usuario ya existe en la base de datos
+     * @return
+     */
+    public boolean userAlreadyExists( User user){
+        return true;
+    }
+
+    public String getPassword(User user){ return user.getPassword();}
 }
