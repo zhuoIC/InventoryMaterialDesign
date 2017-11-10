@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:columnCount="2"
     app:orientation="horizontal"
-    tools:context="com.example.inventorymaterial.DashboardActivity"><!--
+    tools:context="com.example.inventorymvp.DashboardActivity"><!--
 
     <ImageView
         android:id="@+id/imgWhiteboard"

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Inventory Material</string>
+    <string name="app_name">Inventory MVP</string>
     <string name="txvSignIn">Acceder</string>
     <string name="txvUser">Nombre de usuario / correo electrónico</string>
     <string name="txvPassword">Contraseña</string>

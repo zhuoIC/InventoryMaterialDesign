@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="errorUserEmpty">Debe de introducir un usuario</string>
+    <string name="errorPasswordEmpty">Debe introducir una contraseña</string>
+    <string name="errorEmailEmpty">Debe introducir un email</string>
+    <string name="errorPasswordLenght">La contraseña es demasiado corta</string>
+</resources>
