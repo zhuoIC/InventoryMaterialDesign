@@ -59,7 +59,7 @@ public class UserRepository {
      * @return
      */
     public boolean userAlreadyExists( User user){
-        return true;
+        return users.contains(user);
     }
 
     public String getPassword(User user){ return user.getPassword();}
