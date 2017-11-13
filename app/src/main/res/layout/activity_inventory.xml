@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.inventorymvp.ui.inventory.InventoryActivity"
-    android:stretchColumns="1">
+    android:stretchColumns="1"
+    android:id="@+id/android.R.id.content">
     <TableRow>
 
         <TextView

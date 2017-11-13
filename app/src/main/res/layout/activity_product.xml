@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context="com.example.inventorymvp.ui.inventory.InventoryActivity">
+    tools:context="com.example.inventorymvp.ui.inventory.InventoryActivity"
+    android:id="@+id/android.R.id.content">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"

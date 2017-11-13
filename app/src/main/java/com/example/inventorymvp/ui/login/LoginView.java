@@ -9,4 +9,5 @@ public interface LoginView {
     void setUserEmptyError();
     void setPasswordEmptyError();
     void setPasswordError();
+    void onSucess();
 }

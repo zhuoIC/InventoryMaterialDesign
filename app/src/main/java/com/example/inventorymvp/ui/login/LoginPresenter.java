@@ -6,4 +6,6 @@ package com.example.inventorymvp.ui.login;
 
 public interface LoginPresenter {
     void validateCredentials(String user, String password);
+
+    void onDestroy();
 }

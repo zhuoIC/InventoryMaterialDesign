@@ -63,4 +63,8 @@ public class UserRepository {
     }
 
     public String getPassword(User user){ return user.getPassword();}
+
+    public boolean validateCredentials(String user, String password) {
+        return false;
+    }
 }
