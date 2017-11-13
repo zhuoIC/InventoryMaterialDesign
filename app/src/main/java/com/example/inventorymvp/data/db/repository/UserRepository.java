@@ -29,7 +29,7 @@ public class UserRepository {
 
     /* Métodos */
     public void initialize(){
-        addUser(new User(1, "Nicolás", "nicolas", "Nicolás Hernández", "nicolimonar@gmail.com", true, true));
+        addUser(new User(1, "Nicolás", "Nico9", "Nicolás Hernández", "nicolimonar@gmail.com", true, true));
         addUser(new User(1, "Pepe", "pepe", "Pepe Paquito", "paquito@gmail.com", false, false));
         addUser(new User(1, "Sebástian", "sebastian", "Sebástian el Grande", "sebastian@gmail.com", false, false));
     }
@@ -65,6 +65,17 @@ public class UserRepository {
     public String getPassword(User user){ return user.getPassword();}
 
     public boolean validateCredentials(String user, String password) {
-        return false;
+        int i = 0;
+        boolean isCorrect = false;
+        while (i < users.size()){
+            if(users.get(i).getUser() == user || users.get(i).getEmail() == user){
+                if(users.get(i).getPassword() == password){
+                    isCorrect = true;
+                }
+                break;
+            }
+            i++;
+        }
+        return isCorrect;
     }
 }

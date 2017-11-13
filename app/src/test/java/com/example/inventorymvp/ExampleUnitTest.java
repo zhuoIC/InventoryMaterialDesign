@@ -2,6 +2,7 @@ package com.example.inventorymvp;
 
 import com.example.inventorymvp.data.db.model.User;
 import com.example.inventorymvp.data.db.repository.UserRepository;
+import com.example.inventorymvp.ui.utils.CommonUtils;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -29,7 +30,7 @@ public class ExampleUnitTest {
     public void initialize() {
         userRepository =  mock(UserRepository.class);
         users = new ArrayList<>();
-        users.add(new User(1, "Nicolás", "nicolas", "Nicolás Hernández", "nicolimonar@gmail.com", true, true));
+        users.add(new User(1, "Nicolás", "Nico00", "Nicolás Hernández", "nicolimonar@gmail.com", true, true));
         users.add(new User(1, "Manolo", "manolo", "Manolito", "manolitoGafotas@gmail.com", false, false));
         users.add(new User(1, "Sebástian", "sebastian", "Sebástian el Grande", "sebastian@gmail.com", false, false));
     }
@@ -93,5 +94,44 @@ public class ExampleUnitTest {
 
         // Dos objetos apuntan a la misma referencia
         assertSame(user1, user3);
+    }
+
+    @Test
+    public void passwordWellFormed(){
+        //Solo numeros
+        assertFalse(CommonUtils.isPasswordValid("000000"));
+
+        //Sin numeros
+        assertFalse(CommonUtils.isPasswordValid("aaAAAA"));
+
+        //Solo letras minúsculas
+        assertFalse(CommonUtils.isPasswordValid("aaaaaa"));
+
+        //Sin letras minúsculas
+        assertFalse(CommonUtils.isPasswordValid("AA0000"));
+
+        //Solo letras mayúsculas
+        assertFalse(CommonUtils.isPasswordValid("AAAAAA"));
+
+        //Sin letras mayúsculas
+        assertFalse(CommonUtils.isPasswordValid("00aaaa"));
+
+        //Password corta
+        assertFalse(CommonUtils.isPasswordValid("a0Aa0"));
+
+        //Password con carácteres especiales
+        assertFalse(CommonUtils.isPasswordValid("a0Aa0*"));
+
+        //Password con espacios
+        assertFalse(CommonUtils.isPasswordValid("a0A   "));
+
+        //Password correcta con una sola minúscula
+        assertTrue(CommonUtils.isPasswordValid("aAA000"));
+
+        //Password correcta con una sola mayúscula
+        assertTrue(CommonUtils.isPasswordValid("aaA000"));
+
+        //Password correcta con un solo número
+        assertTrue(CommonUtils.isPasswordValid("aAAAA0"));
     }
 }
