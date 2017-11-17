@@ -1,10 +1,14 @@
-package com.example.inventorymvp.data.db.model;
+package com.example.inventorymvp.pojo;
+
+import android.support.annotation.NonNull;
+
+import java.util.Comparator;
 
 /**
  * Created by usuario on 25/10/17.
  */
 
-public class Dependency {
+public class Dependency implements Comparable{
     private int _ID;
     private String name;
     private String shortname;
@@ -55,5 +59,18 @@ public class Dependency {
     @Override
     public String toString() {
         return shortname;
+    }
+
+    @Override
+    public int compareTo(@NonNull Object o){
+        return name.toUpperCase().compareTo(((Dependency) o).getName().toUpperCase());
+    }
+
+    public static class DependencyOrderByShortName implements Comparator<Dependency>{
+
+        @Override
+        public int compare(Dependency d1, Dependency d2) {
+            return d1.getShortname().toUpperCase().compareTo(d2.getShortname().toUpperCase());
+        }
     }
 }

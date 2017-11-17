@@ -10,7 +10,7 @@ import android.view.MenuInflater;
 
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.adapter.SectorAdapter;
-import com.example.inventorymvp.data.db.model.Sector;
+import com.example.inventorymvp.pojo.Sector;
 
 
 public class SectorActivity extends AppCompatActivity {

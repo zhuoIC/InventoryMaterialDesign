@@ -1,7 +1,7 @@
 package com.example.inventorymvp;
 
-import com.example.inventorymvp.data.db.model.User;
-import com.example.inventorymvp.data.db.repository.UserRepository;
+import com.example.inventorymvp.pojo.User;
+import com.example.inventorymvp.repository.UserRepository;
 import com.example.inventorymvp.ui.utils.CommonUtils;
 
 import org.junit.Before;

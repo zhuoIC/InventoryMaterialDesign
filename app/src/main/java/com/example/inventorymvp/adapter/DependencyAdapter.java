@@ -10,9 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.inventorymvp.R;
-import com.example.inventorymvp.data.db.model.Dependency;
-import com.example.inventorymvp.data.db.repository.DependencyRepository;
+import com.example.inventorymvp.pojo.Dependency;
+import com.example.inventorymvp.repository.DependencyRepository;
 import com.github.ivbaranov.mli.MaterialLetterIcon;
+
+import java.util.ArrayList;
 
 /**
  * Created by usuario on 26/10/17.
@@ -20,8 +22,15 @@ import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 public class DependencyAdapter extends ArrayAdapter<Dependency>{
 
+    /**
+     * Se crea una copia del ArrayList que se tiene en DependencyRepository
+     * para tener una copia local en el Adapter que se pueda modificar sin
+     * cambiar los datos originales
+     */
+    private ArrayList<Dependency> dependencies;
     public DependencyAdapter (@NonNull Context context){
-        super(context, R.layout.item_dependency, DependencyRepository.getInstance().getDependencies());
+        super(context, R.layout.item_dependency, new ArrayList<Dependency>(DependencyRepository.getInstance().getDependencies()));
+        //sort(new Dependency.DependencyOrderByShortName());
     }
 
     // Devuelve un objeto View

@@ -1,6 +1,6 @@
-package com.example.inventorymvp.data.db.repository;
+package com.example.inventorymvp.repository;
 
-import com.example.inventorymvp.data.db.model.Sector;
+import com.example.inventorymvp.pojo.Sector;
 
 import java.util.ArrayList;
 

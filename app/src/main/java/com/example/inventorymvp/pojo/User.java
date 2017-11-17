@@ -1,4 +1,6 @@
-package com.example.inventorymvp.data.db.model;
+package com.example.inventorymvp.pojo;
+
+import android.support.annotation.NonNull;
 
 /**
  * Created by usuario on 8/11/17.
@@ -96,4 +98,5 @@ public class User {
     public void setManager(boolean manager) {
         isManager = manager;
     }
+
 }

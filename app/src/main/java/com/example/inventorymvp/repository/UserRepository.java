@@ -1,6 +1,6 @@
-package com.example.inventorymvp.data.db.repository;
+package com.example.inventorymvp.repository;
 
-import com.example.inventorymvp.data.db.model.User;
+import com.example.inventorymvp.pojo.User;
 
 import java.util.ArrayList;
 

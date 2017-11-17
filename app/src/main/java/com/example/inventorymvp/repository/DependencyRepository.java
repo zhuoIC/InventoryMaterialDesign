@@ -1,8 +1,9 @@
-package com.example.inventorymvp.data.db.repository;
+package com.example.inventorymvp.repository;
 
-import com.example.inventorymvp.data.db.model.Dependency;
+import com.example.inventorymvp.pojo.Dependency;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 /**
@@ -31,7 +32,7 @@ public class DependencyRepository {
 
     /* Métodos */
     public void initialize(){
-        addDependency(new Dependency(1, "1º Ciclo Formativo Grado Superior", "1CFGS",
+        addDependency(new Dependency(1, "1º Ciclo Formativo Grado Superior", "XXXX",
                 "1CFGS Desarrollo Aplicaciones Multiplataforma"));
         addDependency(new Dependency(2, "2º Ciclo Formativo Grado Superior", "2CFGS",
                 "2CFGS Desarrollo Aplicaciones Multiplataforma"));
@@ -70,6 +71,11 @@ public class DependencyRepository {
     }
 
     public ArrayList<Dependency> getDependencies(){
+        /**
+         * El ArrayList() se ordena según el/los criterio/s del método compareTo
+         * de la interfaz Comparable
+         */
+        Collections.sort(dependencies);
         return dependencies;
     }
 
