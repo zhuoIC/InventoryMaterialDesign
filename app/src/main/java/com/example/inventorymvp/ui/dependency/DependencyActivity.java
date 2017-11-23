@@ -3,24 +3,20 @@ package com.example.inventorymvp.ui.dependency;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.Intent;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.ListView;
+
 
 
 import com.example.inventorymvp.R;
-import com.example.inventorymvp.adapter.DependencyAdapter;
+import com.example.inventorymvp.ui.base.BaseActivity;
 
 
-public class DependencyActivity extends AppCompatActivity {
+public class DependencyActivity extends BaseActivity implements ListDependency.ListDependencyListener{
 
-    private Fragment listDependency;
-    private Fragment addeditDependency;
+    private ListDependency listDependency;
+    private ListPresenter listPresenter;
+    private AddEditDependency addeditDependency;
+    private AddEditPresenter addEditPresenter;
     private Fragment detailDependency;
 
     @Override
@@ -28,12 +24,40 @@ public class DependencyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dependency);
         FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        listDependency = fragmentManager.findFragmentByTag(ListDependency.TAG);
-        if (listDependency == null){
-            listDependency = ListDependency.newInstance(null);
-            fragmentTransaction.add(android.R.id.content, listDependency);
+
+        // 1- Se crea la vista
+        listDependency = (ListDependency) fragmentManager.findFragmentByTag(ListDependency.TAG);
+        if (listDependency == null) {
+            listDependency = (ListDependency) ListDependency.newInstance(null);
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(android.R.id.content, listDependency, ListDependency.TAG);
             fragmentTransaction.commit();
         }
+
+        // 2- Se crea el presentador y se le pasa en el constructor la vista correspondiente
+        listPresenter = new ListPresenter(listDependency);
+
+        // 3- Si necesitamos se asigna el presentador a su fragment
+        listDependency.setPresenter(listPresenter);
+    }
+
+    /**
+     * Método que se ejecuta cuando se añade una dependencia
+     */
+    @Override
+    public void addNewDependency() {
+        FragmentManager fragmentManager = getFragmentManager();
+
+        addeditDependency = (AddEditDependency) fragmentManager.findFragmentByTag(AddEditDependency.TAG);
+        if(addeditDependency == null){
+            addeditDependency = (AddEditDependency) AddEditDependency.newInstance(null);
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(android.R.id.content, addeditDependency, AddEditDependency.TAG);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+
+        addEditPresenter = new AddEditPresenter(addeditDependency);
+        addeditDependency.setPresenter(addEditPresenter);
     }
 }
