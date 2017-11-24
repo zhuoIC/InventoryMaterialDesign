@@ -4,13 +4,9 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.example.inventorymvp"
         minSdkVersion 18
         targetSdkVersion 22
-        versionCode 20
-        versionName '17.10.20'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        versionNameSuffix 'inventoryECL'
     }
     buildTypes {
         release {
@@ -36,5 +32,4 @@ dependencies {
     compile 'com.github.jrvansuita:MaterialAbout:+'
     implementation 'com.android.support:design:26.1.0'
     implementation 'org.mockito:mockito-core:2.12.0'
-
 }

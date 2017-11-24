@@ -79,4 +79,18 @@ public class DependencyRepository {
         return dependencies;
     }
 
+    public boolean validateCredentials(String name, String shortName, String description) {
+        int i = 0;
+        boolean isCorrect = false;
+        while (i < dependencies.size()){
+            if(dependencies.get(i).getName() == name || dependencies.get(i).getShortname() == shortName){
+                if(dependencies.get(i).getDescription() == description){
+                    isCorrect = true;
+                }
+                break;
+            }
+            i++;
+        }
+        return isCorrect;
+    }
 }

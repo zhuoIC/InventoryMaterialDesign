@@ -4,4 +4,8 @@
     <string name="errorPasswordEmpty">Debe introducir una contraseña</string>
     <string name="errorEmailEmpty">Debe introducir un email</string>
     <string name="errorPasswordLenght">La contraseña es demasiado corta</string>
+    <string name="errorDescriptionEmpty">Debe introducir una descripción</string>
+    <string name="errorShortNameEmpty">Debe introducir un nombre corto</string>
+    <string name="errorNameEmpty">Debe introducir un nombre</string>
+    <string name="errorDependencyDuplicated">La dependencia ya existe</string>
 </resources>

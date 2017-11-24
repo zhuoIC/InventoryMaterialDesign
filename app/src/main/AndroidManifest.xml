@@ -27,7 +27,6 @@
         <activity android:name=".ui.dependency.DependencyActivity" />
         <activity android:name=".ui.sector.SectorActivity" />
         <activity android:name=".ui.prefs.AccountSettingActivity" />
-        <activity android:name=".ui.dependency.AddEditDependency" />
         <activity android:name=".ui.prefs.GeneralSettingActivity" />
         <activity android:name=".ui.base.BaseActivity"></activity>
     </application>
