@@ -9,6 +9,8 @@ import android.os.Bundle;
 
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.ui.base.BaseActivity;
+import com.example.inventorymvp.ui.dependency.presenter.AddEditPresenter;
+import com.example.inventorymvp.ui.dependency.presenter.ListPresenter;
 
 
 public class DependencyActivity extends BaseActivity implements ListDependency.ListDependencyListener{

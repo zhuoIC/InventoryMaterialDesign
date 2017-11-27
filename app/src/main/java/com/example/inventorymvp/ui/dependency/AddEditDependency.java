@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.ui.base.BaseFragment;
 import com.example.inventorymvp.ui.base.BasePresenter;
+import com.example.inventorymvp.ui.dependency.contract.AddEditContract;
 
 
 /**
@@ -19,6 +20,7 @@ import com.example.inventorymvp.ui.base.BasePresenter;
  */
 
 public class AddEditDependency extends BaseFragment implements AddEditContract.View{
+
     private TextInputLayout tilName;
     private TextInputLayout tptShortName;
     private TextInputLayout tptDescription;
@@ -84,5 +86,6 @@ public class AddEditDependency extends BaseFragment implements AddEditContract.V
     // Si all esta correcto se muestra este mensaje
     @Override
     public void showListDependency() {
+        showMessage(getResources().getString(R.string.sucessDependency));
     }
 }

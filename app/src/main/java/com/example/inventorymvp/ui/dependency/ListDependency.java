@@ -11,19 +11,34 @@ import android.view.ViewGroup;
 
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.adapter.DependencyAdapter;
+import com.example.inventorymvp.pojo.Dependency;
 import com.example.inventorymvp.ui.base.BasePresenter;
+import com.example.inventorymvp.ui.dependency.contract.ListDependencyContract;
+import com.example.inventorymvp.ui.dependency.presenter.ListPresenter;
+
+import java.util.List;
 
 /**
  * Created by usuario on 23/11/17.
  */
 
 public class ListDependency extends ListFragment implements ListDependencyContract.View{
+
     public static final String TAG = "listdependency";
-    private ListDependencyContract.Presenter presenter;
+    private ListPresenter presenter;
     private ListDependencyListener callback;
+    private DependencyAdapter adapter;
+
 
     interface ListDependencyListener{
         void addNewDependency();
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        adapter = new DependencyAdapter(getActivity());
+        setRetainInstance(true);
     }
 
     public static ListFragment newInstance(Bundle arguments) {
@@ -46,10 +61,16 @@ public class ListDependency extends ListFragment implements ListDependencyContra
         }
     }
 
+
+    /**
+     * Es entes método se asigna el adapter (sin datos)
+     * @param view
+     * @param savedInstanceState
+     */
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setListAdapter(new DependencyAdapter(getActivity()));
+        setListAdapter(adapter);
     }
 
     @Nullable
@@ -66,11 +87,26 @@ public class ListDependency extends ListFragment implements ListDependencyContra
                 callback.addNewDependency();
             }
         });
+        presenter.loadDependency();
         return rootView;
     }
 
+    /**
+     * Asigna el presentador a la vista
+     * @param presenter
+     */
     @Override
     public void setPresenter(BasePresenter presenter) {
-        this.presenter = (ListDependencyContract.Presenter) presenter;
+        this.presenter = (ListPresenter) presenter;
+    }
+
+    /**
+     * Este método es el que usa la vista para cargar los datos del repositorio a través de esquema mMVP
+     * @param list
+     */
+    @Override
+    public void showDependency(List<Dependency> list){
+        adapter.clear();
+        adapter.addAll(list);
     }
 }

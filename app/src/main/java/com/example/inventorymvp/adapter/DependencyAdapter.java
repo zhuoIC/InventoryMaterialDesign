@@ -29,8 +29,9 @@ public class DependencyAdapter extends ArrayAdapter<Dependency>{
      */
     private ArrayList<Dependency> dependencies;
     public DependencyAdapter (@NonNull Context context){
-        super(context, R.layout.item_dependency, new ArrayList<Dependency>(DependencyRepository.getInstance().getDependencies()));
+        //super(context, R.layout.item_dependency, new ArrayList<Dependency>(DependencyRepository.getInstance().getDependencies()));
         //sort(new Dependency.DependencyOrderByShortName());
+        super(context, R.layout.item_dependency, new ArrayList<Dependency>());
     }
 
     // Devuelve un objeto View
