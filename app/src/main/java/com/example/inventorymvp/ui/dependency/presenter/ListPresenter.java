@@ -60,7 +60,7 @@ public class ListPresenter implements ListDependencyContract.Presenter, ListDepe
     public void onAcceptDialog(Bundle bundle){
         switch (bundle.getInt(CommonDialog.TITTLE)){
             case CommonDialog.DELETE:
-                deleteDependency((Dependency) bundle.getParcelable());
+                deleteDependency((Dependency) bundle.getParcelable(bundle.getString()));
                 break;
         }
     }
