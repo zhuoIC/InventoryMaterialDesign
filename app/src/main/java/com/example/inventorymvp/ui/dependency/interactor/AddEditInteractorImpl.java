@@ -39,4 +39,16 @@ public class AddEditInteractorImpl implements AddEditInteractor{
             onConfirmedListener.onSucess();
         }
     }
+
+    @Override
+    public void addDependency(String name, String sortname, String description) {
+        Dependency dependency = new Dependency(11, name, sortname, description);
+        DependencyRepository.getInstance().addDependency(dependency);
+    }
+
+    @Override
+    public void editDependency(Dependency dependency, OnConfirmedListener listener) {
+        DependencyRepository.getInstance().editDependency(dependency);
+        listener.onSucess();
+    }
 }

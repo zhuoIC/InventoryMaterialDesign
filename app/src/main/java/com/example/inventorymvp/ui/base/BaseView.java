@@ -5,5 +5,6 @@ package com.example.inventorymvp.ui.base;
  */
 
 public interface BaseView {
-    void setPresenter(BasePresenter presenter);
+    //void setPresenter(BasePresenter presenter);
+    void showMessage(String message);
 }

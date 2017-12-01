@@ -4,6 +4,7 @@ import com.example.inventorymvp.pojo.Dependency;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 
 
 /**
@@ -92,5 +93,44 @@ public class DependencyRepository {
             i++;
         }
         return isCorrect;
+    }
+
+    public void editDependency(Dependency dependency) {
+        int index = 0;
+
+        while (index < dependencies.size()) {
+            if (dependency.get_ID() == dependencies.get(index).get_ID()) {
+                dependencies.get(index).setDescription(dependency.getDescription());
+                index = dependencies.size();
+            } else
+                index++;
+        }
+    }
+
+    public void saveDependency(Dependency d){
+        for (Dependency dependency: dependencies) {
+            if(dependency.getName().equals(d.getName())) {
+                dependency.setDescription(d.getDescription());
+            }
+        }
+    }
+
+    /*public void deleteDependency(Dependency d){
+        for (Dependency dependency: dependencies) {
+            if(dependency.getName().equals(d.getName())) {
+                dependency.remove(d.getDescription());
+            }
+        }
+    }*/
+
+    public void deleteDependency(Dependency d){
+        Iterator<Dependency> iterator = dependencies.iterator();
+        Dependency dependency;
+        while (iterator.hasNext()){
+            dependency = iterator.next();
+            if(dependency.get_ID() == (d.get_ID())){
+                iterator.remove();
+            }
+        }
     }
 }

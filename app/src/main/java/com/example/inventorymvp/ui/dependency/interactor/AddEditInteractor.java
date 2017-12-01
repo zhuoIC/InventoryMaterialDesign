@@ -22,4 +22,6 @@ public interface AddEditInteractor {
         void onDependencyExistsError();
     };
     void validatedependency(String name, String shortName, String description);
+    void addDependency(String name, String sortname, String description);
+    void editDependency(Dependency dependency, OnConfirmedListener listener);
 }

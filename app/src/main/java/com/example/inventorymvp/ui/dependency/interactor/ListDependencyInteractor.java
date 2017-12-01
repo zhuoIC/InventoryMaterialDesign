@@ -14,5 +14,6 @@ public interface ListDependencyInteractor {
         void onSucess(List<Dependency> dependencies);
     }
 
-    public void loadDependency();
+    void loadDependency();
+    void deleteDependency(Dependency dependency);
 }

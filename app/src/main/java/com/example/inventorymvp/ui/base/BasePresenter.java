@@ -5,4 +5,5 @@ package com.example.inventorymvp.ui.base;
  */
 
 public interface BasePresenter {
+    void onDestroy();
 }

@@ -19,6 +19,8 @@ public interface AddEditContract {
         void showListDependency();
 
         void showDescriptionError();
+
+        void setValidateDependencyError();
     }
 
     interface Presenter extends BasePresenter{

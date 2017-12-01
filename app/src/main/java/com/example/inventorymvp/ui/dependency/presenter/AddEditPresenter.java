@@ -46,4 +46,10 @@ public class AddEditPresenter implements AddEditContract.Presenter, AddEditInter
     public void onSucess() {
         view.showListDependency();
     }
+
+    @Override
+    public void onDestroy() {
+        view=null;
+        addEditInteractor = null;
+    }
 }

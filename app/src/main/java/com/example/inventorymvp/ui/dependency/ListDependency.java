@@ -12,7 +12,9 @@ import android.view.ViewGroup;
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.adapter.DependencyAdapter;
 import com.example.inventorymvp.pojo.Dependency;
+import com.example.inventorymvp.ui.base.BaseFragment;
 import com.example.inventorymvp.ui.base.BasePresenter;
+import com.example.inventorymvp.ui.base.BaseView;
 import com.example.inventorymvp.ui.dependency.contract.ListDependencyContract;
 import com.example.inventorymvp.ui.dependency.presenter.ListPresenter;
 
@@ -22,10 +24,10 @@ import java.util.List;
  * Created by usuario on 23/11/17.
  */
 
-public class ListDependency extends ListFragment implements ListDependencyContract.View{
+public class ListDependency extends ListFragment implements BaseView, ListDependencyContract.View{
 
     public static final String TAG = "listdependency";
-    private ListPresenter presenter;
+    private ListDependencyContract.Presenter presenter;
     private ListDependencyListener callback;
     private DependencyAdapter adapter;
 
@@ -38,6 +40,7 @@ public class ListDependency extends ListFragment implements ListDependencyContra
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         adapter = new DependencyAdapter(getActivity());
+        this.presenter = new ListPresenter(this);
         setRetainInstance(true);
     }
 
@@ -95,10 +98,10 @@ public class ListDependency extends ListFragment implements ListDependencyContra
      * Asigna el presentador a la vista
      * @param presenter
      */
-    @Override
+    /*@Override
     public void setPresenter(BasePresenter presenter) {
         this.presenter = (ListPresenter) presenter;
-    }
+    }*/
 
     /**
      * Este método es el que usa la vista para cargar los datos del repositorio a través de esquema mMVP
@@ -108,5 +111,33 @@ public class ListDependency extends ListFragment implements ListDependencyContra
     public void showDependency(List<Dependency> list){
         adapter.clear();
         adapter.addAll(list);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        callback = null;
+    }
+
+    @Override
+    public void showMessage(String message){
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        presenter.onDestroy();
+        adapter = null;
+    }
+
+    @Override
+    public void showDeleteMessage() {
+        showMessage("Se ha eliminado correctamente");
+    }
+
+    @Override
+    public void updateAdapter() {
+
     }
 }
