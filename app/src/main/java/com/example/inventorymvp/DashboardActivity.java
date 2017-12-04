@@ -9,9 +9,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.inventorymvp.data.prefs.AppPreferencesHelper;
 import com.example.inventorymvp.ui.dependency.DependencyActivity;
 import com.example.inventorymvp.ui.inventory.InventoryActivity;
+import com.example.inventorymvp.ui.inventory.InventoryApplication;
 import com.example.inventorymvp.ui.prefs.AccountSettingActivity;
 import com.example.inventorymvp.ui.prefs.GeneralSettingActivity;
 import com.example.inventorymvp.ui.product.ProductActivity;
@@ -139,5 +142,18 @@ public class DashboardActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        showAppPreferences();
+    }
+
+    private void showAppPreferences() {
+        AppPreferencesHelper sharedPreferences = ((InventoryApplication)getApplicationContext()).getAppPreferencesHelper();
+        String message = "Tu usuario de sesión es: " + sharedPreferences.getCurrentUserName();
+
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 }

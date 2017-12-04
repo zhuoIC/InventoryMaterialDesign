@@ -4,16 +4,16 @@
         android:title="@string/pref_category_account" />
     <SwitchPreference
         android:defaultValue="false"
-        android:key="remindyuser"
+        android:key="pref_key_current_user_remember"
         android:title="@string/pref_title_reminduser"
         android:summaryOn="@string/pref_summaryon_reminduser"
         android:summaryOff="@string/pref_summaryoff_reminduser"/>
-    <Preference
-        android:key="nameuser"
+    <EditTextPreference
+        android:key="pref_key_current_user_name"
         android:title="@string/pref_title_nameuser"
         android:summary="@string/pref_summary_nameuser" />
-    <Preference
-        android:key="passworduser"
+    <EditTextPreference
+        android:key="pref_key_current_user_password"
         android:title="@string/pref_title_passworduser"
         android:summary="@string/pref_summary_passworduser" />
 </PreferenceScreen>

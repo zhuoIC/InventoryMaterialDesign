@@ -111,10 +111,10 @@ public class AddEditDependency extends BaseFragment implements AddEditContract.V
     }
 
 
-    @Override
+    /*@Override
     public void setPresenter(BasePresenter presenter) {
         this.presenter = (AddEditContract.Presenter) presenter;
-    }
+    }*/
 
     @Override
     public void showMessage(String message) {
