@@ -1,13 +1,18 @@
 package com.example.inventorymvp.ui.dependency;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.adapter.DependencyAdapter;
@@ -30,6 +35,7 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
     private ListDependencyContract.Presenter presenter;
     private ListDependencyListener callback;
     private DependencyAdapter adapter;
+    private Dialog dialog;
 
 
     interface ListDependencyListener{
@@ -74,6 +80,39 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         setListAdapter(adapter);
+        //AdapterView de la lista
+        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bundle = new Bundle();
+                bundle.putParcelable(Dependency.TAG, (Dependency) adapterView.getItemAtPosition(position));
+            }
+        });
+        // Activar el modo MULTICHOICE en la lista
+        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        getListView().setMultiChoiceModeListener(new DependencyMultiChoiceModeListener());
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                getListView().setItemChecked(position, !presenter.isPositionChecked(position));
+                return false;
+            }
+        });
+
+        //Registrar el menu contextual
+        Log.d(TAG, "ListDependency: onViewCreated");
+    }
+
+    /**
+     * Menu contextual (pulsacion larga) sobre la lista
+     *
+     * @param menu
+     * @param v
+     * @param menuInfo
+     */
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
     }
 
     @Nullable
@@ -140,4 +179,6 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
     public void updateAdapter() {
 
     }
+
+
 }

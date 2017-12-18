@@ -8,6 +8,9 @@ import com.example.inventorymvp.ui.dependency.interactor.ListDependencyInteracto
 import com.example.inventorymvp.ui.dependency.interactor.ListDependencyInteractorImpl;
 import com.example.inventorymvp.ui.utils.CommonDialog;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -63,5 +66,41 @@ public class ListPresenter implements ListDependencyContract.Presenter, ListDepe
                 deleteDependency((Dependency) bundle.getParcelable(bundle.getString()));
                 break;
         }
+    }
+
+    /**
+     *    Métodos que gestionan la selección mútiple de una vista
+     */
+    HashMap<Integer, Boolean> selection = new HashMap<>();
+    @Override
+    public void setNewSelection(int position) {
+        selection.put(position, true);
+    }
+
+    @Override
+    public void removeSelection(int position) {
+        selection.remove(position);
+    }
+
+    /**
+     * Método que elimina los elementos seleccionados en el mapa
+     */
+    @Override
+    public void deleteSelection() {
+    }
+
+    @Override
+    public void clearSelection() {
+        selection.clear();
+    }
+
+    /**
+     * Si un elemento del mapa está a true
+     * @param position
+     * @return
+     */
+    @Override
+    public boolean isPositionChecked(int position) {
+        return selection.get(position) != null ? true : false;
     }
 }
