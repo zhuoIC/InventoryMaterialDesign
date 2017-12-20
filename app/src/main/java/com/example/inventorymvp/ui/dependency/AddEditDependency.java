@@ -13,7 +13,6 @@ import android.widget.EditText;
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.pojo.Dependency;
 import com.example.inventorymvp.ui.base.BaseFragment;
-import com.example.inventorymvp.ui.base.BasePresenter;
 import com.example.inventorymvp.ui.dependency.contract.AddEditContract;
 import com.example.inventorymvp.ui.dependency.presenter.AddEditPresenter;
 import com.example.inventorymvp.ui.utils.AddEdit;
@@ -84,7 +83,7 @@ public class AddEditDependency extends BaseFragment implements AddEditContract.V
             @Override
             public void onClick(View v) {
                 if (mode.getMode() == AddEdit.ADD_MODE) {
-                    presenter.saveDependency(
+                    presenter.addDependency(
                             tilName.getEditText().getText().toString(),
                             tilShortName.getEditText().getText().toString(),
                             tilDescription.getEditText().getText().toString());
@@ -163,5 +162,9 @@ public class AddEditDependency extends BaseFragment implements AddEditContract.V
     public void onDestroy() {
         super.onDestroy();
         presenter.onDestroy();
+    }
+
+    public void setPresenter (AddEditPresenter presenter){
+        this.presenter = presenter;
     }
 }

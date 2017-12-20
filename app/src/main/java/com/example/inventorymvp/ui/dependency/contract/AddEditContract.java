@@ -1,5 +1,6 @@
 package com.example.inventorymvp.ui.dependency.contract;
 
+import com.example.inventorymvp.pojo.Dependency;
 import com.example.inventorymvp.ui.base.BasePresenter;
 import com.example.inventorymvp.ui.base.BaseView;
 
@@ -25,5 +26,9 @@ public interface AddEditContract {
 
     interface Presenter extends BasePresenter{
         void validatedependency(String name, String shortName, String description);
+
+        void addDependency(String name, String shortName, String description);
+
+        void editDependency(Dependency dependency);
     }
 }

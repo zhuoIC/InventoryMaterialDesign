@@ -1,5 +1,6 @@
 package com.example.inventorymvp.ui.dependency.presenter;
 
+import com.example.inventorymvp.pojo.Dependency;
 import com.example.inventorymvp.ui.dependency.contract.AddEditContract;
 import com.example.inventorymvp.ui.dependency.interactor.AddEditInteractor;
 import com.example.inventorymvp.ui.dependency.interactor.AddEditInteractorImpl;
@@ -22,6 +23,17 @@ public class AddEditPresenter implements AddEditContract.Presenter, AddEditInter
     public void validatedependency(String name, String shortName, String description) {
         addEditInteractor.validatedependency(name, shortName, description);
     }
+
+    @Override
+    public void addDependency(String name, String shortName, String description) {
+        addEditInteractor.addDependency(name, shortName, description);
+    }
+
+    @Override
+    public void editDependency(Dependency dependency) {
+        addEditInteractor.editDependency(dependency, this);
+    }
+
     @Override
     public void onNameEmptyError() {
         view.showNameError();

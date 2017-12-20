@@ -1,16 +1,20 @@
 package com.example.inventorymvp.ui.dependency.presenter;
 
 import android.os.Bundle;
+import android.view.ActionMode;
 
 import com.example.inventorymvp.pojo.Dependency;
+import com.example.inventorymvp.repository.DependencyRepository;
 import com.example.inventorymvp.ui.dependency.contract.ListDependencyContract;
 import com.example.inventorymvp.ui.dependency.interactor.ListDependencyInteractor;
 import com.example.inventorymvp.ui.dependency.interactor.ListDependencyInteractorImpl;
 import com.example.inventorymvp.ui.utils.CommonDialog;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -48,7 +52,6 @@ public class ListPresenter implements ListDependencyContract.Presenter, ListDepe
     @Override
     public void deleteDependency(Dependency dependency){
         listDependencyInteractor.deleteDependency(dependency);
-        view.updateAdapter();
         view.showDeleteMessage();
 
     }
@@ -63,7 +66,8 @@ public class ListPresenter implements ListDependencyContract.Presenter, ListDepe
     public void onAcceptDialog(Bundle bundle){
         switch (bundle.getInt(CommonDialog.TITTLE)){
             case CommonDialog.DELETE:
-                deleteDependency((Dependency) bundle.getParcelable(bundle.getString()));
+                deleteDependency((Dependency) bundle.getParcelable(Dependency.TAG));
+                loadDependency();
                 break;
         }
     }
@@ -87,6 +91,17 @@ public class ListPresenter implements ListDependencyContract.Presenter, ListDepe
      */
     @Override
     public void deleteSelection() {
+        Iterator<Integer> iterator = selection.keySet().iterator();
+        int position;
+        while (iterator.hasNext()){
+            position = iterator.next();
+            listDependencyInteractor.deleteDependency(getDependency(position));
+        }
+
+    }
+
+    private Dependency getDependency(int position){
+        return view.getDependency(position);
     }
 
     @Override
@@ -102,5 +117,11 @@ public class ListPresenter implements ListDependencyContract.Presenter, ListDepe
     @Override
     public boolean isPositionChecked(int position) {
         return selection.get(position) != null ? true : false;
+    }
+
+    @Override
+    public void checkedActionMode() {
+        if(!selection.isEmpty()){
+        }
     }
 }

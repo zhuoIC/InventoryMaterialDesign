@@ -7,11 +7,30 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!--Para que la ActionMode se sitúe sobre la Toolbar y no la desplace-->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeStyle">@style/Widget.ActionMode</item>
+    </style>
+
+    <!-- Si queremos el mismo estilo que el ActionBar
+    <style name="Widget.ActionMode" parent="Widget.AppCompat.ActionBar.Solid">-->
+
+    <!-- Si queremos un estilo diferente-->
+    <style name="Widget.ActionMode" parent="Widget.AppCompat.ActionMode">
+        <item name="background">@color/background_action_mode</item>
+        <item name="android:background">@color/background_action_mode</item>
+        <item name="actionModeBackground">@color/background_action_mode</item>
+        <item name="android:actionModeBackground">@color/background_action_mode</item>
+    </style>
+
+    <style name="Widget.ActionMode.TitleTextSimple" parent="@style/TextAppearance.AppCompat.Widget.ActionMode.Title">
+        <item name="android:textColor">@android:color/white</item>
     </style>
     
     <style name="LoginTheme" parent="AppTheme">
         <item name="android:textColor">@color/colorPrimaryLogin</item>
     </style>
+
     <style name="Widget.Button.Transparent" parent="@android:style/Widget.Button">
         <!--Con @null anulamos la propiedad-->
         <item name="android:background">@null</item>
@@ -19,20 +38,25 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:layout_marginTop">16dp</item>
     </style>
+
     <style name="LoginEditText">
         <item name="android:padding">8dp</item>
     </style>
+
     <style name="CheckBox_RememberMe" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="colorAccent">@android:color/darker_gray</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
     <style name="MyTextView" parent="@android:style/TextAppearance.Small.Inverse">
     </style>
+
     <style name="text_color_CheckBox" parent="android:Widget.CompoundButton.CheckBox">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:checkboxStyle">@android:color/darker_gray</item>
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
     </style>
+
     <style name="DashboardEditText">
         <item name="android:padding">6dp</item>
     </style>

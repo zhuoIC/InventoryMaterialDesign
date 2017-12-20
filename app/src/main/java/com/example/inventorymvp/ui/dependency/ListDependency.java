@@ -6,6 +6,8 @@ import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -17,8 +19,6 @@ import android.widget.ListView;
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.adapter.DependencyAdapter;
 import com.example.inventorymvp.pojo.Dependency;
-import com.example.inventorymvp.ui.base.BaseFragment;
-import com.example.inventorymvp.ui.base.BasePresenter;
 import com.example.inventorymvp.ui.base.BaseView;
 import com.example.inventorymvp.ui.dependency.contract.ListDependencyContract;
 import com.example.inventorymvp.ui.dependency.presenter.ListPresenter;
@@ -36,6 +36,8 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
     private ListDependencyListener callback;
     private DependencyAdapter adapter;
     private Dialog dialog;
+    private Toolbar toolbar;
+
 
 
     interface ListDependencyListener{
@@ -85,12 +87,12 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable(Dependency.TAG, (Dependency) adapterView.getItemAtPosition(position));
+                bundle.putParcelable(Dependency.TAG, adapter.getItem(position));
             }
         });
         // Activar el modo MULTICHOICE en la lista
         getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
-        getListView().setMultiChoiceModeListener(new DependencyMultiChoiceModeListener());
+        getListView().setMultiChoiceModeListener(new DependencyMultiChoiceModeListener(presenter));
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -126,10 +128,14 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                presenter.checkedActionMode();
                 callback.addNewDependency();
             }
         });
+        toolbar = rootView.findViewById(R.id.toolbar);
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         presenter.loadDependency();
+        Log.d(TAG, "ListDependency onCreateview()");
         return rootView;
     }
 
@@ -180,5 +186,12 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
 
     }
 
+    @Override
+    public Dependency getDependency(int position) {
+        return adapter.getItem(position);
+    }
 
+    public void setPresenter (ListPresenter presenter){
+        this.presenter = presenter;
+    }
 }

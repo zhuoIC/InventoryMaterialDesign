@@ -6,4 +6,5 @@
     <color name="colorGoogle">#e35f43</color>
     <color name="colorFacebook">#3b5998</color>
     <color name="colorPrimaryLogin">#ffffff</color>
+    <color name="background_action_mode">#CCE5FF</color>
 </resources>

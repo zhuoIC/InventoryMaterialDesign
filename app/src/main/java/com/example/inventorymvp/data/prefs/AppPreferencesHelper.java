@@ -27,7 +27,7 @@ public class AppPreferencesHelper implements AccountPreferencesHelper, GeneralPr
 
     private AppPreferencesHelper() {
         // Si es el fichero por defecto de las preferencias
-        preferences = (InventoryApplication.getContext());
+        preferences = (SharedPreferences) InventoryApplication.getContext();
     }
 
     /**

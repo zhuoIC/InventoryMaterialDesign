@@ -17,6 +17,8 @@ public interface ListDependencyContract {
         void showDependency(List<Dependency> dependencies);
         void showDeleteMessage();
         void updateAdapter();
+
+        Dependency getDependency(int position);
     }
 
     interface Presenter extends BasePresenter{
@@ -34,5 +36,7 @@ public interface ListDependencyContract {
         void clearSelection();
 
         boolean isPositionChecked(int position);
+
+        void checkedActionMode();
     }
 }

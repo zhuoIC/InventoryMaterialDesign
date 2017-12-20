@@ -16,7 +16,7 @@ import com.example.inventorymvp.ui.dependency.presenter.ListPresenter;
 public class DependencyActivity extends BaseActivity implements ListDependency.ListDependencyListener{
 
     private ListDependency listDependency;
-    //private ListPresenter listPresenter;
+    private ListPresenter listPresenter;
     private AddEditDependency addeditDependency;
     private AddEditPresenter addEditPresenter;
     private Fragment detailDependency;
@@ -64,9 +64,9 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
     }
 
     @Override
-    public void editDependecy(Bundle bundle) {
-        addeditDependency = (AddeditDependency) getSupportFragmentManager().
-                findFragmentByTag(AddeditDependencyFragment.TAG);
+    public void editDependency(Bundle bundle) {
+        addeditDependency = (AddEditDependency) getSupportFragmentManager().
+                findFragmentByTag(AddEditDependency.TAG);
 
         if (addeditDependency == null) {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();

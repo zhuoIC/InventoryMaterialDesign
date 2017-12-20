@@ -15,7 +15,7 @@ public class Dependency implements Comparable, Parcelable{
     private String name;
     private String shortname;
     private String description;
-
+    public static final String TAG = "dependency";
 
 
     public Dependency(int _ID, String name, String shortname, String description) {
