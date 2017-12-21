@@ -41,6 +41,7 @@
         android:textColor="@android:color/secondary_text_light"
         tool:layout_constraintEnd_toEndOf="parent"
         tool:layout_constraintStart_toEndOf="@+id/materialLetterIcon"
-        tool:layout_constraintTop_toTopOf="parent" />
+        tool:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/snow"/>
 
 </android.support.constraint.ConstraintLayout>

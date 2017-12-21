@@ -5,6 +5,9 @@ package com.example.inventorymvp.data.prefs;
  */
 
 public interface AccountPreferencesHelper {
+    /**
+     * 1) Se define todas las KEY posibles del fichero de preferencias
+     */
     String PREF_KEY_CURRENT_USER_ID = "pref_key_current_user_id";
     String PREF_KEY_CURRENT_USER_NAME = "pref_key_current_user_name";
     String PREF_KEY_CURRENT_USER_PASSWORD = "pref_key_current_user_password";

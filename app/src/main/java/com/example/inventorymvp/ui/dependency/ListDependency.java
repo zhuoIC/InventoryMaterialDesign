@@ -42,6 +42,7 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
 
     interface ListDependencyListener{
         void addNewDependency();
+        void editDependency(Bundle bundle);
     }
 
     @Override

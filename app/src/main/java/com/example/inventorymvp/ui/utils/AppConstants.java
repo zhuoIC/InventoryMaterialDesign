@@ -6,4 +6,5 @@ package com.example.inventorymvp.ui.utils;
 
 public class AppConstants {
     public static final long NULL_INDEX = 1L;
+    public static final String PREF_NAME="MVPFragment_prefs";
 }

@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Toast;
 
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.adapter.SectorAdapter;
@@ -16,21 +17,26 @@ import com.example.inventorymvp.pojo.Sector;
 public class SectorActivity extends AppCompatActivity {
     private RecyclerView recyclerSector;
     private SectorAdapter sectorAdapter;
-
+    private SectorAdapter.OnItemClickListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sector);
-        recyclerSector = (RecyclerView) findViewById(R.id.recyclerSector);
+        recyclerSector = findViewById(R.id.recyclerSector);
         recyclerSector.setHasFixedSize(true);
         recyclerSector.setLayoutManager(new LinearLayoutManager(this));
         // recyclerSector.setLayoutManager(new GridLayoutManager(this, 2));
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        listener = new SectorAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Sector sector) {
+                Toast.makeText(SectorActivity.this, "Debería funcionar", Toast.LENGTH_LONG).show();
+            }
+        };
         if (savedInstanceState != null){
-            sectorAdapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"));
+            sectorAdapter = new SectorAdapter(savedInstanceState.<Sector>getParcelableArrayList("sector"), listener);
         }
         else{
             sectorAdapter = new SectorAdapter();

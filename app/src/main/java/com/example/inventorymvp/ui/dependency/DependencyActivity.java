@@ -65,7 +65,8 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
 
     @Override
     public void editDependency(Bundle bundle) {
-        addeditDependency = (AddEditDependency) getSupportFragmentManager().
+        FragmentManager fragmentManager = getFragmentManager();
+        addeditDependency = (AddEditDependency) fragmentManager.
                 findFragmentByTag(AddEditDependency.TAG);
 
         if (addeditDependency == null) {

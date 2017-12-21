@@ -62,7 +62,6 @@ public class DependencyMultiChoiceModeListener implements AbsListView.MultiChoic
 
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-        count = 0;
-        presenter.clearSelection();
+
     }
 }

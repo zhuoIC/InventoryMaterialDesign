@@ -12,7 +12,11 @@ import com.example.inventorymvp.data.prefs.AppPreferencesHelper;
 public class InventoryApplication extends Application{
 
     private AppPreferencesHelper appPreferencesHelper;
+    private static Context context;
 
+    public InventoryApplication(){
+        context = this;
+    }
 
     @Override
     public void onCreate(){
@@ -31,6 +35,6 @@ public class InventoryApplication extends Application{
     }
 
     public static Context getContext(){
-        return getContext();
+        return context;
     }
 }

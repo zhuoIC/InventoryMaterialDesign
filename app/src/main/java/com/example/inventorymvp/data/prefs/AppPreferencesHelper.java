@@ -1,33 +1,38 @@
 package com.example.inventorymvp.data.prefs;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import com.example.inventorymvp.ui.inventory.InventoryApplication;
 import com.example.inventorymvp.ui.utils.AppConstants;
-
-import static com.example.inventorymvp.ui.inventory.InventoryApplication.getContext;
-import static java.security.AccessController.getContext;
 
 /**
  * Created by usuario on 4/12/17.
  */
 
 public class AppPreferencesHelper implements AccountPreferencesHelper, GeneralPreferencesHelper {
-    /**
-     * 1) Se define todas las KEY posibles del fichero de preferencias
-     */
-    private  static final String PREF_KEY_CURRENT_USER_ID = "pref_key_current_user_id";
-    private  static final String PREF_KEY_CURRENT_USER_NAME = "pref_key_current_user_name";
-    private  static final String PREF_KEY_CURRENT_USER_PASSWORD = "pref_key_current_user_password";
-    private  static final String PREF_KEY_CURRENT_USER_REMEMBER = "pref_key_current_user_remember";
+
+    public interface AppPreferencesHelperListener{
+        void onSharedPreferencesChanged();
+    }
 
     // 2. Objeto para editar las preferencias
     private final SharedPreferences preferences;
     private static AppPreferencesHelper instance;
+    private SharedPreferences.OnSharedPreferenceChangeListener listener;
+    private String TAG = "AppPreferencesHelper";
 
     private AppPreferencesHelper() {
         // Si es el fichero por defecto de las preferencias
-        preferences = (SharedPreferences) InventoryApplication.getContext();
+        this.preferences = (InventoryApplication.getContext()).getSharedPreferences(AppConstants.PREF_NAME, Context.MODE_PRIVATE);
+        listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+
+                Log.i(TAG, "onSharedPreferencesHelper: Se ha cambiado la key: " + key);
+            }
+        };
     }
 
     /**

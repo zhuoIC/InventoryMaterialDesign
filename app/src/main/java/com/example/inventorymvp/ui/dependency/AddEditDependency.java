@@ -155,7 +155,7 @@ public class AddEditDependency extends BaseFragment implements AddEditContract.V
     @Override
     public void onDetach() {
         super.onDetach();
-        callback = null;
+        //callback = null; //<- Estaba sin comentar
     }
 
     @Override
