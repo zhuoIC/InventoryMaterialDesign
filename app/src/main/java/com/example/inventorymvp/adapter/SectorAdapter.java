@@ -26,19 +26,29 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
     // En nuestro caso en el Repository
     private ArrayList<Sector> sectorsModified;
     private onSwitchCheckedChangeListener onSwitchCheckedChangeListener;
+    
+    private OnItemClickListener listener;
+    
+    public interface OnItemClickListener{
+        void onItemClick(Sector sector);
+        
+    }
+    
+    
     /**
      * Constructor que sólo se llamará cuando SectorActivity venga de un cambio de configuración
      * y se haya salvado el estado dinámico.
      * @param sectorsModified
      */
-    public SectorAdapter(ArrayList<Sector> sectorsModified){
+    public SectorAdapter(ArrayList<Sector> sectorsModified, OnItemClickListener listener){
         sectors = SectorRepository.getInstance().getSectors();
         this.sectorsModified = sectorsModified;
+        this.listener = listener;
     }
 
     public SectorAdapter (){
         sectors = SectorRepository.getInstance().getSectors();
-        sectorsModified = new ArrayList<>();
+        sectorsModified = sectors;
     }
 
     @Override
@@ -57,8 +67,12 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
         sectorViewHolder.swEnabled.setChecked(sectors.get(position).isEnabled());
         sectorViewHolder.swEnabled.setOnCheckedChangeListener(onSwitchCheckedChangeListener);
         sectorViewHolder.txvName.setText(sectors.get(position).getName());
+        if(sectorsModified.contains(sectors.get(position))
+           sectorViewHolder.swEnabled.setChecked(sectorsModified.get(position).isEnabled());
+        
         if (sectors.get(position).is_default())
             sectorViewHolder.txvSectorDefault.setText(R.string.txvSectorDefault);
+        sectorViewHoler.bind(sectors.get(position), listener);
     }
 
     /**
@@ -81,6 +95,15 @@ public class SectorAdapter extends RecyclerView.Adapter<SectorAdapter.SectorView
             swEnabled = (Switch) view.findViewById(R.id.swEnabled);
             txvName = (TextView)view.findViewById(R.id.txvName);
             txvSectorDefault= (TextView)view.findViewById(R.id.txvSectorDefault);
+        }
+        
+        public bind(Sector sector, OnItemClickListener listener){
+            itemView.setOnClickListener(new View.setOnClickListener(){
+                @Override
+                public void onCLick(View view){
+                    listener.setOnClick(sector);
+                }
+            }); // Elemento view que se crea en el recycler automáticamente
         }
     }
 
