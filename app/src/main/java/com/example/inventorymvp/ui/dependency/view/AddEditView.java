@@ -1,4 +1,4 @@
-package com.example.inventorymvp.ui.dependency;
+package com.example.inventorymvp.ui.dependency.view;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -22,7 +22,7 @@ import com.example.inventorymvp.ui.utils.AddEdit;
  * Created by usuario on 3/11/17.
  */
 
-public class AddEditDependency extends BaseFragment implements AddEditContract.View{
+public class AddEditView extends BaseFragment implements AddEditContract.View{
 
     private TextInputLayout tilName;
     private TextInputLayout tilShortName;
@@ -37,11 +37,11 @@ public class AddEditDependency extends BaseFragment implements AddEditContract.V
     private FloatingActionButton fabDependency;
 
     public static Fragment newInstance(Bundle arguments) {
-        AddEditDependency addEditDependency = new AddEditDependency();
+        AddEditView addEditView = new AddEditView();
         if(arguments != null){
-            addEditDependency.setArguments(arguments);
+            addEditView.setArguments(arguments);
         }
-        return addEditDependency;
+        return addEditView;
     }
 
     @Nullable

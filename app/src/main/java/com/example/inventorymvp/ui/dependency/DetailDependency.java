@@ -13,7 +13,7 @@ import com.example.inventorymvp.R;
  * Created by usuario on 23/11/17.
  */
 
-public class DetailDependency extends Fragment{
+public class DetailDependency extends Fragment {
     public static final String TAG = "detaildependency";
 
     public static Fragment newInstance(Bundle arguments) {

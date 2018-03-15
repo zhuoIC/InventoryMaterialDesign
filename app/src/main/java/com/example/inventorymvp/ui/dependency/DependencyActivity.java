@@ -11,13 +11,15 @@ import com.example.inventorymvp.R;
 import com.example.inventorymvp.ui.base.BaseActivity;
 import com.example.inventorymvp.ui.dependency.presenter.AddEditPresenter;
 import com.example.inventorymvp.ui.dependency.presenter.ListPresenter;
+import com.example.inventorymvp.ui.dependency.view.AddEditView;
+import com.example.inventorymvp.ui.dependency.view.ListView;
 
 
-public class DependencyActivity extends BaseActivity implements ListDependency.ListDependencyListener{
+public class DependencyActivity extends BaseActivity implements ListView.ListDependencyListener {
 
-    private ListDependency listDependency;
+    private ListView listDependency;
     private ListPresenter listPresenter;
-    private AddEditDependency addeditDependency;
+    private AddEditView addeditView;
     private AddEditPresenter addEditPresenter;
     private Fragment detailDependency;
 
@@ -28,11 +30,11 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
         FragmentManager fragmentManager = getFragmentManager();
 
         // 1- Se crea la vista
-        listDependency = (ListDependency) fragmentManager.findFragmentByTag(ListDependency.TAG);
+        listDependency = (ListView) fragmentManager.findFragmentByTag(ListView.TAG);
         if (listDependency == null) {
-            listDependency = (ListDependency) ListDependency.newInstance(null);
+            listDependency = (ListView) ListView.newInstance(null);
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.add(android.R.id.content, listDependency, ListDependency.TAG);
+            fragmentTransaction.add(android.R.id.content, listDependency, ListView.TAG);
             fragmentTransaction.commit();
         }
 
@@ -50,33 +52,33 @@ public class DependencyActivity extends BaseActivity implements ListDependency.L
     public void addNewDependency() {
         FragmentManager fragmentManager = getFragmentManager();
 
-        addeditDependency = (AddEditDependency) fragmentManager.findFragmentByTag(AddEditDependency.TAG);
-        if(addeditDependency == null){
-            addeditDependency = (AddEditDependency) AddEditDependency.newInstance(null);
+        addeditView = (AddEditView) fragmentManager.findFragmentByTag(AddEditView.TAG);
+        if(addeditView == null){
+            addeditView = (AddEditView) AddEditView.newInstance(null);
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(android.R.id.content, addeditDependency, AddEditDependency.TAG);
+            fragmentTransaction.replace(android.R.id.content, addeditView, AddEditView.TAG);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
         }
 
-        addEditPresenter = new AddEditPresenter(addeditDependency);
-        addeditDependency.setPresenter(addEditPresenter);
+        addEditPresenter = new AddEditPresenter(addeditView);
+        addeditView.setPresenter(addEditPresenter);
     }
 
     @Override
     public void editDependency(Bundle bundle) {
         FragmentManager fragmentManager = getFragmentManager();
-        addeditDependency = (AddEditDependency) fragmentManager.
-                findFragmentByTag(AddEditDependency.TAG);
+        addeditView = (AddEditView) fragmentManager.
+                findFragmentByTag(AddEditView.TAG);
 
-        if (addeditDependency == null) {
+        if (addeditView == null) {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            addeditDependency = (AddEditDependency) AddEditDependency.newInstance(bundle);
+            addeditView = (AddEditView) AddEditView.newInstance(bundle);
             transaction.addToBackStack(null);
-            transaction.replace(android.R.id.content, addeditDependency, AddEditDependency.TAG).commit();
+            transaction.replace(android.R.id.content, addeditView, AddEditView.TAG).commit();
         }
 
-        addEditPresenter = new AddEditPresenter(addeditDependency);
-        addeditDependency.setPresenter(addEditPresenter);
+        addEditPresenter = new AddEditPresenter(addeditView);
+        addeditView.setPresenter(addEditPresenter);
     }
 }

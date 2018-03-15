@@ -1,4 +1,4 @@
-package com.example.inventorymvp.ui.dependency;
+package com.example.inventorymvp.ui.dependency.view;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -14,12 +14,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ListView;
 
 import com.example.inventorymvp.R;
 import com.example.inventorymvp.adapter.DependencyAdapter;
 import com.example.inventorymvp.pojo.Dependency;
 import com.example.inventorymvp.ui.base.BaseView;
+import com.example.inventorymvp.ui.dependency.DependencyMultiChoiceModeListener;
 import com.example.inventorymvp.ui.dependency.contract.ListDependencyContract;
 import com.example.inventorymvp.ui.dependency.presenter.ListPresenter;
 
@@ -29,7 +29,7 @@ import java.util.List;
  * Created by usuario on 23/11/17.
  */
 
-public class ListDependency extends ListFragment implements BaseView, ListDependencyContract.View{
+public class ListView extends ListFragment implements BaseView, ListDependencyContract.View{
 
     public static final String TAG = "listdependency";
     private ListDependencyContract.Presenter presenter;
@@ -54,11 +54,11 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
     }
 
     public static ListFragment newInstance(Bundle arguments) {
-        ListDependency listDependency = new ListDependency();
+        ListView listView = new ListView();
         if(arguments != null){
-            listDependency.setArguments(arguments);
+            listView.setArguments(arguments);
         }
-        return listDependency;
+        return listView;
     }
 
     @Override
@@ -92,7 +92,7 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
             }
         });
         // Activar el modo MULTICHOICE en la lista
-        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        getListView().setChoiceMode(android.widget.ListView.CHOICE_MODE_MULTIPLE_MODAL);
         getListView().setMultiChoiceModeListener(new DependencyMultiChoiceModeListener(presenter));
         getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -103,7 +103,7 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
         });
 
         //Registrar el menu contextual
-        Log.d(TAG, "ListDependency: onViewCreated");
+        Log.d(TAG, "ListView: onViewCreated");
     }
 
     /**
@@ -136,7 +136,7 @@ public class ListDependency extends ListFragment implements BaseView, ListDepend
         toolbar = rootView.findViewById(R.id.toolbar);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         presenter.loadDependency();
-        Log.d(TAG, "ListDependency onCreateview()");
+        Log.d(TAG, "ListView onCreateview()");
         return rootView;
     }
 
