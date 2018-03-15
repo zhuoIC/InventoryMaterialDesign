@@ -23,11 +23,11 @@ public final class CommonUtils {
      * @return
      */
     public static boolean isPasswordValid(String password){
-        Pattern pattern;
-        Matcher matcher;
+        //Pattern pattern;
+        //Matcher matcher;
         final String PASSWORD_PATTERN = "((?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?!.*[@#$%*^(),;.'\"·¡!¿?=+ ]).{6,})";
-        pattern = Pattern.compile(PASSWORD_PATTERN);
-        matcher = pattern.matcher(password);
-        return matcher.matches();
+        //pattern = Pattern.compile(PASSWORD_PATTERN);
+        //matcher = pattern.matcher(password);
+        return Pattern.compile(PASSWORD_PATTERN).matcher(password).matches();
     }
 }

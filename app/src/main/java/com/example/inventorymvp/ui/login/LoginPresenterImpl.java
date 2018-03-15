@@ -7,7 +7,7 @@ package com.example.inventorymvp.ui.login;
 public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLoginFinishedListener{
 
     private LoginView loginView;
-    private LoginInteractorImpl loginInteractor;
+    private LoginInteractor loginInteractor;
 
     public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;

@@ -29,9 +29,9 @@ public class DependencyActivity extends AppCompatActivity {
         //adapter = new ArrayAdapter<Dependency>(this, android.R.layout.simple_list_item_1,
         // DependencyRepository.getInstance().getSectors());
         // CASO 2: Adapter personalizado
-        listView = (ListView) findViewById(android.R.id.list) ;
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        listView = findViewById(android.R.id.list) ;
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        fab = findViewById(R.id.fab);
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinator);
         setSupportActionBar(toolbar);
         adapter = new DependencyAdapter(this);

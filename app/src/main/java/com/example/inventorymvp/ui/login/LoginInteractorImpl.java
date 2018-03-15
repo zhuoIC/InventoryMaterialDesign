@@ -9,8 +9,9 @@ import com.example.inventorymvp.ui.utils.CommonUtils;
  * Created by usuario on 10/11/17.
  */
 
-public class LoginInteractorImpl {
+public class LoginInteractorImpl implements LoginInteractor{
 
+    @Override
     public void validateCredentials(String user, String password, LoginInteractor.OnLoginFinishedListener onLoginFinishedListener) {
         // Realiza todas las comprobaciones
         // Si el password es vacío
